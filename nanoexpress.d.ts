@@ -28,8 +28,8 @@ declare namespace nanoexpress {
     configureAjv(ajv: Ajv): Ajv;
     swagger?: SwaggerOptions;
     console?:
-      | Pick<Console, 'log' | 'error' | 'warn' | 'info' | 'debug'>
-      | false;
+    | Pick<Console, 'log' | 'error' | 'warn' | 'info' | 'debug'>
+    | false;
   }
 
   export type HttpRequestHeaders = Record<string, string>;
@@ -203,10 +203,10 @@ declare namespace nanoexpress {
     address: string;
 
     define(callback: (app: INanoexpressApp) => void): INanoexpressApp;
-    use(middleware: MiddlewareRoute): INanoexpressApp;
-    use(path: string, middleware: MiddlewareRoute): INanoexpressApp;
-    use(path: string, ...middlewares: MiddlewareRoute[]): INanoexpressApp;
-    use(...middlewares: MiddlewareRoute[]): INanoexpressApp;
+    use(middleware: MiddlewareRoute | INanoexpressApp): INanoexpressApp;
+    use(path: string, middleware: MiddlewareRoute | INanoexpressApp): INanoexpressApp;
+    use(path: string, ...middlewares: (MiddlewareRoute | INanoexpressApp)[]): INanoexpressApp;
+    use(...middlewares: (MiddlewareRoute | INanoexpressApp)[]): INanoexpressApp;
 
     use(middleware: PromiseLike<MiddlewareRoute>): PromiseLike<any>;
     use(
@@ -378,7 +378,7 @@ declare namespace nanoexpress {
 
   export interface INanoexpressApp
     extends Omit<AppTemplatedApp, keyof INanoexpressAppInterface>,
-      INanoexpressAppInterface {}
+    INanoexpressAppInterface { }
 }
 
 declare function nanoexpress(

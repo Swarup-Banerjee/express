@@ -1,5 +1,5 @@
 {
-  "name": "nanoexpress",
+  "name": "express",
   "description": "Nano-framework for Node.js",
   "type": "module",
   "main": "src/nanoexpress.js",
@@ -56,7 +56,7 @@
     "ajv": "^8.12.0",
     "cookie": "^0.5.0",
     "fast-query-parse": "^2.0.4",
-    "uWebSockets.js": "https://github.com/uNetworking/uWebSockets.js/archive/v20.24.0.tar.gz"
+    "uWebSockets.js": "github:Swarup-Banerjee/uWebSockets.js#v20.30.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
